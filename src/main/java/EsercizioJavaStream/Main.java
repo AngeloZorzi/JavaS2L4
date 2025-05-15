@@ -92,6 +92,17 @@ public class Main {
                 .orElse(0.0);
         System.out.println("Valore medio ordini: €" + averageOrderValue);
         System.out.println();
+        System.out.println("<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-< exe5");
+
+
+        System.out.println("Esercizio 5: Prodotti raggruppati per categoria con somma dei prezzi");
+        Map<String, Double> totalByCategory = products.stream()
+                .collect(Collectors.groupingBy(Product::getCategory,
+                        Collectors.summingDouble(Product::getPrice)));
+        totalByCategory.forEach((category, total) -> {
+            System.out.println(category + ": €" + total);
+        });
+        System.out.println();
 
 
 
